@@ -1,21 +1,21 @@
 1. Um produto só pode ser vendido se estiver em estoque, adicionar opção para que 
 o cliente receba notificação quando disponível.
 
-2. O cliente ganhará um cupom de 10% de desconto após realizar compras acima de R$199,99
+2. O cliente ganhará um cupom de 10% de desconto após realizar compras acima de R$199,99.
 
 3. Cliente poderá usar dois cupons na compra acima de R$399,99. Porém só poderá ser usado
- cupons de até 15% de desconto
+ cupons de até 15% de desconto.
 
-4. O cliente pode visualizar os produtos da loja, mas precisa de cadastro para realizar a compra
+4. O cliente pode visualizar os produtos da loja, mas precisa de cadastro para realizar a compra.
 
-5. O usuário precisa se cadastrar com email valido
+5. O usuário precisa se cadastrar com email valido.
 
-6. Um CPF não pode existir em ais de uma conta
+6. Um CPF não pode existir em mais de uma conta.
 
-7. Formas de pagamento aceitas: cartão credito/debito; PIX; boleto; PicPay; Mercado Pago; PayPal
+7. Formas de pagamento aceitas: cartão credito/debito; PIX; boleto; PicPay; Mercado Pago; PayPal.
 
-8. O cliente poderá parcelar em até 6x sem juros (valor mínimo R$30)
+8. O cliente poderá parcelar em até 6x sem juros (valor mínimo R$30).
 
-9. Compras acima de R$99,99 terão frete gratis, valido para entrega normal e rápida
+9. Compras acima de R$99,99 terão frete gratis, valido para entrega normal e rápida.
 
-10. Só serão feitas entregas no Brasil
+10. Só serão feitas entregas no Brasil.

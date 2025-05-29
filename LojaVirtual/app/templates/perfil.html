@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt‑br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Meu perfil</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+{% include "navbar.html" %}
+<main class="container">
+    <!-- cabeçalho do perfil -->
+    <header class="perfil‑header">
+        <h1>Olá, {{ session['usuario_nome'] }}!</h1>
+    </header>
+
+    <!-- grid das infos -->
+    <section class="grid">
+        <!-- compras -->
+        <article class="card perfil‑card">
+            <h2>Suas compras</h2>
+            {% if compras %}
+                <ul class="lista">
+                    {% for c in compras %}
+                    <li>
+                        <strong>#{{ c[0] }}</strong> — Prod. ID {{ c[2] }}
+                        <span class="tag">Qtd: {{ c[3] }}</span>
+                        <span class="tag">{{ c[4]|datetimeformat }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Você ainda não realizou compras.</p>
+            {% endif %}
+        </article>
+
+        <!-- endereços -->
+        <article class="card perfil‑card">
+            <h2>Endereços</h2>
+            {% if enderecos %}
+                <ul class="lista">
+                    {% for e in enderecos %}
+                    <li>{{ e[2] }}, {{ e[3] }} — {{ e[4] }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Nenhum endereço cadastrado.</p>
+            {% endif %}
+            <a class="btn‑sec" href="{{ url_for('main.enderecos') }}">
+                + Adicionar endereço
+            </a>
+        </article>
+
+        <!-- cartões -->
+        <article class="card perfil‑card">
+            <h2>Cartões</h2>
+            {% if cartoes %}
+                <ul class="lista">
+                    {% for k in cartoes %}
+                    <li>
+                        <span class="tag">•••• {{ k[2][-4:] }}</span>
+                        {{ k[3] }} — {{ k[4] }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Nenhum cartão salvo.</p>
+            {% endif %}
+            <a class="btn‑sec" href="{{ url_for('main.cartoes') }}">
+                + Adicionar cartão
+            </a>
+        </article>
+    </section>
+</main>
+
+
+</body>
+</html>

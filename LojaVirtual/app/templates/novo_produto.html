@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Novo Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+{% include "navbar.html" %}
+<main class="login‑wrapper">
+    <section class="login‑card">
+        <h1 class="login‑titulo">Adicionar Novo Produto</h1>
+
+        <!-- mensagens flash -->
+        {% with msgs = get_flashed_messages(with_categories=true) %}
+        {% if msgs %}
+            <ul class="flash">
+            {% for cat, msg in msgs %}
+                <li class="{{ cat }}">{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+
+            <label>Descrição</label>
+            <textarea name="descricao" required></textarea>
+
+            <label>Preço</label>
+            <input type="number" name="preco" step="0.01" required>
+
+            <label>Categoria</label>
+            <input type="text" name="categoria" required>
+
+            <label>Estoque</label>
+            <input type="number" name="estoque" required>
+
+            <label>Imagem</label>
+            <input type="file" name="imagem" accept="image/*" required>
+
+            <button class="btn‑prim w‑full" type="submit">Adicionar</button>
+        </form>
+
+        <p class="login‑link">
+            <a href="{{ url_for('main.produtos') }}">← Voltar para produtos</a>
+        </p>
+    </section>
+</main>
+</body>
+</html>

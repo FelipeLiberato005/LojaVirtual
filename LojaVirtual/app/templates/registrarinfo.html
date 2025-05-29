@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt‑br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Novo endereço • LojaVirtual</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login‑bg">
+{% include "navbar.html" %}
+<main class="login‑wrapper">
+    <section class="login‑card">
+        <h1 class="login‑titulo">Adicionar endereço</h1>
+
+        <!-- mensagens flash -->
+        {% with msgs = get_flashed_messages(with_categories=true) %}
+        {% if msgs %}
+            <ul class="flash">
+            {% for cat,msg in msgs %}
+                <li class="{{ cat }}">{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.enderecos') }}">
+            <label>Endereço</label>
+            <input type="text" name="endereco"
+                   placeholder="Rua Exemplo, 123" required>
+
+            <label>Cidade</label>
+            <input type="text" name="cidade" placeholder="Cidade" required>
+
+            <label>Estado</label>
+            <input type="text" name="estado" placeholder="UF" required>
+
+            <label>CEP</label>
+            <input type="text" name="cep" placeholder="00000‑000" required>
+
+            <button class="btn‑prim w‑full" type="submit">Salvar</button>
+        </form>
+
+        <p class="login‑link">
+            <a href="{{ url_for('main.perfil') }}">Voltar ao perfil</a>
+        </p>
+    </section>
+</main>
+</body>
+</html>

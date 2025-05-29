@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt‑br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Produtos</title>
+
+    <!-- Estilos globais -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% include "navbar.html" %}
+    <main class="container">
+        <header class="page‑header">
+            <h1>Produtos</h1>
+        </header>
+
+        <!-- grade de produtos -->
+        <section class="grid">
+            {% for p in produtos %}
+            <article class="card">
+                <img src="{{ url_for('static',
+                         filename='images/' + p[6]) }}"
+                     alt="{{ p[1] }}">
+                <div class="card‑body">
+                    <h2 class="card‑title">{{ p[1] }}</h2>
+                    <p class="card‑desc">{{ p[2][:120] }}{% if p[2]|length > 120 %}…{% endif %}</p>
+                    <div class="card‑info">
+                        <span class="price">R$ {{ "%.2f"|format(p[3]) }}</span>
+                        <span class="cat">{{ p[4] }}</span>
+                    </div>
+                    {% if p[5] > 0 %}
+                        <button class="btn‑comprar">Adicionar ao carrinho</button>
+                    {% else %}
+                        <span class="esgotado">Esgotado</span>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

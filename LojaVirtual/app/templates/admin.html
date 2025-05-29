@@ -1,0 +1,3 @@
+    {% if session['usuario_admin'] %}
+    <a href="{{ url_for('main.painel_admin') }}">Painel Admin</a>
+    {% endif %}

@@ -1,0 +1,24 @@
+<header>
+        <nav>
+          <a href="{{ url_for('main.produtos') }}" class="logo-pinterest"  style="text-decoration: none;">
+            <svg
+              height="40"
+              viewBox="-3 -3 82 82"
+              width="40"
+              style="display: block"
+            >
+            </svg>
+            <h1>ClickCenter</h1>
+          </a>
+
+          <div class="restante-nav">
+            <p class="botao-perfil"><a href="{{ url_for('main.perfil') }}" class="link-nav">Perfil</a></p>
+              <p class="botao-perfil"><a href="{{ url_for('main.produtos') }}" class="link-nav">Produtos</a></p>
+            <a href="{{ url_for('main.logout') }}" class="link-nav">Sair</a>
+            {% if session.get('usuario_admin') %}
+            <p class="botao-perfil"><a href="{{ url_for('main.admin_compras') }}" class="link-nav">Área Admin - Compras</a></p>
+             <a href="{{ url_for('main.novo_produto') }}" class="btn‑prim">+ Novo Produto</a>
+            {% endif %}
+          </div>
+        </nav>
+      </header>

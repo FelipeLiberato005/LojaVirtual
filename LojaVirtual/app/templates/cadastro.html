@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt‑br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Criar conta • LojaVirtual</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login‑bg">
+<main class="login‑wrapper">
+    <section class="login‑card">
+        <h1 class="login‑titulo">Criar conta</h1>
+
+        <!-- mensagens flash -->
+        {% with msgs = get_flashed_messages(with_categories=true) %}
+        {% if msgs %}
+            <ul class="flash">
+            {% for cat,msg in msgs %}
+                <li class="{{ cat }}">{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('main.cadastro') }}">
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Seu nome" required>
+
+            <label>E‑mail</label>
+            <input type="email" name="email" placeholder="voce@email.com" required>
+
+            <label>Senha</label>
+            <input type="password" name="senha" placeholder="Crie uma senha" required>
+
+            <button class="btn‑prim w‑full" type="submit">Cadastrar</button>
+        </form>
+
+        <p class="login‑link">
+            Já tem conta?
+            <a href="{{ url_for('main.login') }}">Entrar</a>
+        </p>
+    </section>
+</main>
+</body>
+</html>
